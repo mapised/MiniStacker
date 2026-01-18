@@ -7,12 +7,10 @@ Mini stacker game states:
 
 coneFacts = {
     "Cone Stacker was made by Gavin",
-    "Gavin's last name is Peeler",
     "Cones are orange.",
     "If you reach the score of 1,000 a secret will happen.",
     "There are 27 cones in the software room.",
     "Mini Stacker is available on Steam!",
-    "Walker is a bum",
     "WPILIB is written in Java and C++",
     "The cone was drawn in piskel.",
     "Cone Stacker is written in C++!",
