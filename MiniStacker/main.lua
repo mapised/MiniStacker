@@ -24,6 +24,7 @@ coneFacts = {
     "Cones are cool.",
     "Mini Stacker has 21,921 total lines of code.",
     "Traffic cones weren't invented until the 1940s.",
+    "Your personal best does not save.",
     "Java sucks ): - Wes",
     "Coding is fun (:",
     "Java is great (:",
@@ -61,6 +62,7 @@ function love.load()
 
     love.window.setTitle("Mini Stacker")
     love.window.setIcon(love.image.newImageData("sprites/icon.png"))
+    love.window.setMode(800, 600, {resizable = true, fullscreen = false})
     love.graphics.setFont(regular)
     love.audio.play(musicLoop)
 end 
@@ -256,22 +258,22 @@ function love.keypressed(keyPressed)
         else
             love.window.setFullscreen(true)
         end
-        getDimensions()
     end   
         
-    if keyPressed == "up" or keyPressed == "w" then
+    if keyPressed == "up" or keyPressed == "w" or keyPressed == "space" then
         if gameState == 1 then
             dropCone()
-        end
-    end
-
-    if keyPressed == "space" then
-        if gameState == 0 then
-            startGame()
-        elseif gameState == 1 then
-            dropCone()
         else
-            gameState = 0
+            if gameState == 0 then
+                startGame()
+            elseif gameState == 3 then
+                gameState = 0
+            end
         end
     end
+end
+
+function love.resize()
+    -- so that the window proportions don't break.
+    getDimensions()
 end
